@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HelloNougat</string>
+    <string name="static_shortcut_open_message_1">Hi, You just opened static shortcut 1, back button will take you to launcher.</string>
+    <string name="static_shortcut_open_message_2">Static shortcut 2, back button will take you to MainActivity</string>
+    <string name="static_shortcut_disabled_message">static shortcut disable message</string>
+    <string name="static_shortcut_long_label_1">static shortcut long label 1</string>
+    <string name="static_shortcut_long_label_2">static shortcut long label 2</string>
+    <string name="static_shortcut_short_label_1">static shortcut 1</string>
+    <string name="static_shortcut_short_label_2">static shortcut 2</string>
 </resources>
