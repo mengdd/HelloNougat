@@ -55,7 +55,24 @@ public class MainActivity extends AppCompatActivity {
                         })
                 .build();
 
-        shortcutManager.setDynamicShortcuts(Arrays.asList(dynamicShortcut1, dynamicShortcut2));
+        ShortcutInfo dynamicShortcut3 = new ShortcutInfo.Builder(this, "shortcut_dynamic_3")
+                .setShortLabel("Github io")
+                .setLongLabel("Open my github page")
+                .setIcon(Icon.createWithResource(this, R.mipmap.ic_launcher))
+                .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://mengdd.github.io/")))
+                .build();
+
+//        ShortcutInfo dynamicShortcut4 = new ShortcutInfo.Builder(this, "shortcut_dynamic_4")
+//                .setShortLabel("open my github profile")
+//                .setLongLabel("Open my github profile page")
+//                .setIcon(Icon.createWithResource(this, R.mipmap.ic_launcher))
+//                .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/mengdd")))
+//                .build();
+        // the max limit for shortcuts is 5 (static + dynamic), if we add more than 5, exception will be thrown
+        // Caused by: java.lang.IllegalArgumentException: Max number of dynamic shortcuts exceeded
+
+
+        shortcutManager.setDynamicShortcuts(Arrays.asList(dynamicShortcut1, dynamicShortcut2, dynamicShortcut3));
 
     }
 
