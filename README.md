@@ -3,8 +3,10 @@ Sample project for Android 7 Nougat's new features.
 
 ## Android 7.1 App Shortcuts
 Official doc: [App Shortcuts](https://developer.android.com/preview/shortcuts.html)
+
 Screenshot:
-![app shortcuts](https://github.com/mengdd/HelloNougat/blob/master/images/app-shortcuts-screenshot.png)
+
+![app shortcuts](/images/app-shortcuts-screenshot.png)
 
 
 ## Resource
