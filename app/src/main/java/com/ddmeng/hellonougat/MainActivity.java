@@ -1,10 +1,12 @@
 package com.ddmeng.hellonougat;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,30 +23,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createDynamicShortcuts();
-
-        findViewById(R.id.update_dynamic_shortcuts).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateDynamicShortcuts();
-            }
-        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            createDynamicShortcuts();
+            findViewById(R.id.update_dynamic_shortcuts).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    updateDynamicShortcuts();
+                }
+            });
+        }
     }
 
+    @TargetApi(25)
     private void createDynamicShortcuts() {
         shortcutManager = getSystemService(ShortcutManager.class);
 
         ShortcutInfo dynamicShortcut1 = new ShortcutInfo.Builder(this, "shortcut_blog")
                 .setShortLabel("open my blog")
                 .setLongLabel("Open my blog home page")
-                .setIcon(Icon.createWithResource(this, R.mipmap.ic_launcher))
+                .setIcon(Icon.createWithResource(this, R.drawable.ic_face_black_24dp))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cnblogs.com/mengdd/")))
                 .build();
 
         ShortcutInfo dynamicShortcut2 = new ShortcutInfo.Builder(this, "shortcut_dynamic")
                 .setShortLabel("Dynamic Shortcut")
                 .setLongLabel("Open Dynamic shortcut 2")
-                .setIcon(Icon.createWithResource(this, R.mipmap.ic_launcher))
+                .setIcon(Icon.createWithResource(this, R.drawable.ic_favorite_border_black_24dp))
                 .setIntents(
                         // this dynamic shortcut set up a back stack using Intents, when pressing back, will go to MainActivity
                         // the last Intent is what the shortcut really opened
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         ShortcutInfo dynamicShortcut3 = new ShortcutInfo.Builder(this, "shortcut_dynamic_3")
                 .setShortLabel("Github io")
                 .setLongLabel("Open my github page")
-                .setIcon(Icon.createWithResource(this, R.mipmap.ic_launcher))
+                .setIcon(Icon.createWithResource(this, R.drawable.ic_sentiment_very_satisfied_black_24dp))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://mengdd.github.io/")))
                 .build();
 
@@ -76,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @TargetApi(25)
     private void updateDynamicShortcuts() {
         ShortcutInfo webShortcut = new ShortcutInfo.Builder(MainActivity.this, "shortcut_blog")
                 .setRank(1)

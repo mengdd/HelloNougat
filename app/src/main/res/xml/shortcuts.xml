@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_check_circle_black_24dp"
         android:shortcutDisabledMessage="@string/static_shortcut_disabled_message"
         android:shortcutId="static"
         android:shortcutLongLabel="@string/static_shortcut_long_label_1"
@@ -14,7 +14,7 @@
     </shortcut>
     <shortcut
         android:enabled="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_android_black_24dp"
         android:shortcutDisabledMessage="@string/static_shortcut_disabled_message"
         android:shortcutId="static_2"
         android:shortcutLongLabel="@string/static_shortcut_long_label_2"
